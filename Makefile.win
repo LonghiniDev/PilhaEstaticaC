@@ -1,0 +1,46 @@
+# Project: ProjPilha
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = main.o inicializarPilha.o lerDados.o push.o apresentarPilha.o pop.o receberDados.o
+LINKOBJ  = main.o inicializarPilha.o lerDados.o push.o apresentarPilha.o pop.o receberDados.o
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
+INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = ProjPilha.exe
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+
+inicializarPilha.o: inicializarPilha.cpp
+	$(CPP) -c inicializarPilha.cpp -o inicializarPilha.o $(CXXFLAGS)
+
+lerDados.o: lerDados.cpp
+	$(CPP) -c lerDados.cpp -o lerDados.o $(CXXFLAGS)
+
+push.o: push.cpp
+	$(CPP) -c push.cpp -o push.o $(CXXFLAGS)
+
+apresentarPilha.o: apresentarPilha.cpp
+	$(CPP) -c apresentarPilha.cpp -o apresentarPilha.o $(CXXFLAGS)
+
+pop.o: pop.cpp
+	$(CPP) -c pop.cpp -o pop.o $(CXXFLAGS)
+
+receberDados.o: receberDados.cpp
+	$(CPP) -c receberDados.cpp -o receberDados.o $(CXXFLAGS)
